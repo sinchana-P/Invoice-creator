@@ -63,7 +63,7 @@ function addService(service,serviceCost){
             task += `<div class="task-list">
                        <span>
                            ${service[i]} 
-                           <button id="remove-btn-${i}"> Remove </button>
+                           <button id="remove-btn"> Remove </button>
                         </span>
                        
                        <span>$ ${serviceCost[i]}</span>
