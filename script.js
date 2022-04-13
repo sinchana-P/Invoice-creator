@@ -92,7 +92,6 @@ sendBtn.addEventListener("click",function(){
     note.textContent = ` `;
 })
 
-
 function removeItem(item){
     //console.log(item);
     taskArray.splice(item,1);
