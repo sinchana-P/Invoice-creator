@@ -7,7 +7,9 @@ let note = document.getElementById("note");
 let sendBtn = document.getElementById("send-btn");
 let removeBtn = document.getElementById("remove-btn");
 let taskList = document.getElementById("taskList");
-console.log(taskList);
+
+
+//console.log(taskList);
 //console.log(tasks);
 let hasWash = 0;  
 let hasLawn = 0;
@@ -16,7 +18,7 @@ let hasWeed = 0;
 let taskArray = [];
 let costArray = [];
 //console.log(taskArray);
-
+let element;
 
 washBtn.addEventListener("click",function(){
     if(!hasWash){
@@ -25,9 +27,9 @@ washBtn.addEventListener("click",function(){
         //console.log(taskArray);
         addService(taskArray,costArray);
         hasWash = 1;
-    }
-    
-} );  
+        
+        }
+    });    
 
 lawnBtn.addEventListener("click",function(){
     if(!hasLawn){
@@ -52,7 +54,7 @@ weedsBtn.addEventListener("click",function(){
 } );  
 
 function addService(service,serviceCost){
-        //console.log(service[0]);
+       //console.log(service[0]);
        //console.log(hasWash);
        //console.log(hasLawn);
        //console.log(hasWeed);
@@ -63,7 +65,7 @@ function addService(service,serviceCost){
             task += `<div class="task-list">
                        <span>
                            ${service[i]} 
-                           <button id="remove-btn"> Remove </button>
+                           <button id="remove-btn" value="${i}" onclick="removeItem(this.value)"> Remove </button>
                         </span>
                        
                        <span>$ ${serviceCost[i]}</span>
@@ -74,8 +76,7 @@ function addService(service,serviceCost){
               //console.log(amt);
          }
          tasks.innerHTML = task;   
-         //console.log(tasks);
-        
+         //console.log(tasks);       
          note.textContent = `We accept cash, credit card, or PayPal`;
          totalAmount.textContent = `$${amt}`;     
 }
@@ -90,7 +91,15 @@ sendBtn.addEventListener("click",function(){
 })
 
 
-removeBtn.addEventListener("click",function(){
-    console.log("removed");
-    tasks.removeChild(taskList);
-});
+function removeItem(item){
+    //console.log(item);
+    taskArray.splice(item,1);
+    costArray.splice(item,1);
+    //console.log(taskArray);
+    addService(taskArray,costArray);
+    
+    hasWash = taskArray.includes("Wash Car");
+    //console.log(hasWash);
+    hasLawn = taskArray.includes("Mow Lawn");
+    hasWeed = taskArray.includes("Pull Weeds");
+}
