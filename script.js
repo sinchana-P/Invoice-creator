@@ -88,6 +88,8 @@ sendBtn.addEventListener("click",function(){
     hasLawn = hasWash = hasWeed = 0;
     taskArray = [];
     costArray = [];
+
+    note.textContent = ` `;
 })
 
 
