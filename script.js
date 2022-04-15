@@ -83,6 +83,12 @@ function addService(service,serviceCost){
 
 
 sendBtn.addEventListener("click",function(){
+    for(let i = 0; i < taskArray.length; i++){
+           console.log(`The array items are: ${taskArray[i]}`);
+           console.log(`the cost: ${costArray[i]}`);
+    }
+    
+
     tasks.innerHTML = " ";
     totalAmount.textContent = `$0`;
     hasLawn = hasWash = hasWeed = 0;
@@ -90,6 +96,7 @@ sendBtn.addEventListener("click",function(){
     costArray = [];
 
     note.textContent = ` `;
+    
 })
 
 function removeItem(item){
