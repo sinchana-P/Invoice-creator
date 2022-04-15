@@ -84,7 +84,7 @@ function addService(service,serviceCost){
 
 sendBtn.addEventListener("click",function(){
     for(let i = 0; i < taskArray.length; i++){
-           console.log(`The array items are: ${taskArray[i]}`);
+           console.log(`The array item: ${taskArray[i]}`);
            console.log(`the cost: ${costArray[i]}`);
     }
     
